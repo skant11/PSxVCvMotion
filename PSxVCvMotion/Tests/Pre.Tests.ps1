@@ -6,7 +6,7 @@ Param(
     $destVCConn
 )
 
-$VM = Get-VM $cfg.scope.vm -Server $sourceVCConn -erroraction SilentlyContinue | Where-Object {$cfg.vm.exclusion -notcontains $_.Name}
+$VM = Get-Cluster $cfg.cluster.source -Server $sourceVCConn | Get-VM $cfg.vm.scope -Server $sourceVCConn -erroraction SilentlyContinue | Where-Object {$cfg.vm.exclusion -notcontains $_.Name}
 
 Describe -Name 'Testing vSphere Infrastructure' {
     Context -Name 'vCenter versions xVCvMotion compatibility' {
@@ -16,7 +16,7 @@ Describe -Name 'Testing vSphere Infrastructure' {
 
         If ($sourceVCConn.Version -eq [version]'6.5') {
             It -Name "If source version 6.5, destination version should not be 6.0" {
-                ($destVCConn.Version -eq [version]'6.5') | Should Be $false
+                ($destVCConn.Version -eq [version]'6.0') | Should Be $false
             }
         }
     }
@@ -68,7 +68,7 @@ Describe -Name 'Testing vSphere Infrastructure' {
     }
 
     Context -Name "Testing VMs" {
-        It -Name "Found VM matching scope $($cfg.scope.vm)" {
+        It -Name "Found VM matching scope $($cfg.vm.scope)" {
             $VM.count | Should BeGreaterThan 0
         }
     }

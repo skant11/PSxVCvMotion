@@ -1,16 +1,29 @@
+<#
+    .NOTES
+    https://github.com/equelin/vmware-powercli-workflows
+#>
+
 Function Get-DestinationCluster {
     [CmdletBinding()]
     Param  (
         # Config object
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         [Object]$cfg,
 
         # Source vCenter connexion object
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         $sourceVCConn,
 
         # destination vCenter connexion object
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         $destVCConn,
 
         # VM list
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         $VM
     )
 

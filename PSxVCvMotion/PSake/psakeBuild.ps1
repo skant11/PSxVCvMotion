@@ -60,7 +60,7 @@ task Migrate -depends Connection, Test {
     $destVCConn = $global:DefaultVIServers | Where-Object {$_.Name -match $cfg.destinationvc.vc} | Select-Object -Last 1
 
     Write-Verbose -Message "Get list of VM from scope"
-    $VMList = Get-Cluster $cfg.cluster.source -Server $sourceVCConn | Get-VM $cfg.scope.vm -Server $sourceVCConn
+    $VMList = Get-Cluster $cfg.cluster.source -Server $sourceVCConn | Get-VM $cfg.vm.scope -Server $sourceVCConn
 
     Write-Verbose -Message "Execute function Move-xvCenterVM"
     Try {

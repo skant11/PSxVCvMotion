@@ -10,7 +10,7 @@ Function Invoke-xVCvMotion {
     [cmdletbinding(ConfirmImpact = 'Medium')]
     param(
         [Parameter(Mandatory=$False)]
-        [string[]]$Task = 'default',
+        [switch]$Migrate,
 
         [Parameter(Mandatory=$False)]
         [ValidateScript({If ($_.FullName) {Test-Path $_.FullName} Else {Test-Path $_}})]
@@ -27,11 +27,18 @@ Function Invoke-xVCvMotion {
 
     Process {
 
+        # Set $Task variable
+        If ($Migrate) {
+            $Task = 'All'
+        } else {
+            $Task = 'Default'
+        }
+
+        # Get full path for config file
         $Config = (get-item $Config).VersionInfo.FileName
 
+        # Invoke PSake
         Invoke-psake -buildFile $buildFile -taskList $Task -parameters @{"Config"=$Config;"Test"=$Test} -Verbose:$VerbosePreference
-
-
 
     }
 }

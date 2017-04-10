@@ -1,3 +1,8 @@
+<#
+    .NOTES
+    https://github.com/equelin/vmware-powercli-workflows
+#>
+
 Function Move-xVCvMotion {
     [CmdletBinding(SupportsShouldProcess = $True,ConfirmImpact = 'High')]
     Param  (
@@ -25,7 +30,7 @@ Function Move-xVCvMotion {
 
                 # Select VM
                 Write-Host "Processing VM [$vmname]" -ForegroundColor Blue
-                $VM = Get-VM $vmname -Server $sourceVCConn -erroraction SilentlyContinue | Where-Object {$_.Name -ne $cfg.vm.exclusion}
+                $VM = Get-VM $vmname -Server $sourceVCConn -erroraction SilentlyContinue
 
                 if ($VM) {
 

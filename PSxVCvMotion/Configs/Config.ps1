@@ -1,4 +1,4 @@
-$cfg = @{}
+$cfg = @{} #Do not modify this line
 
 #### MANDATORY PARAMETERS
 
@@ -18,16 +18,17 @@ $cfg.destinationvc = @{
 
 # Cluster translation table
 # List of source and destination clusters
-# If the source cluster is not on the list, the script will look at a destination cluster with the same name
+# You can provide only one line
 $cfg.cluster = @(
     @{source = 'CLUSTER01' ; destination = 'CLUSTER02'}
 )
 
-# List of VM matching the specified pattern
+# List of VM matching the specified pattern and excluded VMs
 # vm = '*' -> All VM selected
 # vm = 'TEST*' -> All VM who's name starts with TEST
-$cfg.scope = @{
-    vm = '*'
+$cfg.vm = @{
+    scope = '*'
+    exclusion = @('VM01','VM02')
 }
 
 #### OPTIONAL PARAMETERS

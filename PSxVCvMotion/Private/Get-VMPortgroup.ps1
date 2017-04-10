@@ -1,10 +1,19 @@
+<#
+    .NOTES
+    https://github.com/equelin/vmware-powercli-workflows
+#>
+
 Function Get-VMPortgroup {
     [CmdletBinding()]
     Param  (
         # Name of the portgroup
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         [String]$Name,
 
         # vCenter connexion object
+        [Parameter(Mandatory=$True)]
+        [ValidateNotNullOrEmpty()]
         $Server
     )
 
