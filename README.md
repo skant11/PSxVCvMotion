@@ -2,9 +2,17 @@
 
 This a Powershell / PowerCLI module for automating Cross vCenter vMotion. It is build to help migrate a lot of VM with heterogeneous configurations. By default it will assume that configurations are the same between the source and target vCenter. Optionnaly you can define targets for specifics items (portgroups, datastores).
 
+![](./Img/PSxVCvMotion.gif)
+
 The parameters needed for the vMotions are stored inside of a `.ps1` file. They will be automatically tested before starting any vMotion.
 
 This module is build with the modern and open sourced Powershell's tools [Pester](https://github.com/pester/Pester) and [PSake](https://github.com/psake/psake).
+
+## Special Thanks
+
+A big shout out to [William Lam](https://twitter.com/lamw) and [Kyle Ruddy](https://twitter.com/kmruddy) for there blog articles about cross vCenter vMotion:
+- [Cross vCenter Server operations (clone / migrate) between versions of vSphere 6.x](http://www.virtuallyghetto.com/2017/02/cross-vcenter-server-operations-clone-migrate-between-versions-of-vsphere-6-x.html)
+- [Spotlight on the Move-VM Cmdlet including PowerCLI 6.5 Enhancements](https://blogs.vmware.com/PowerCLI/2017/01/spotlight-move-vm-cmdlet.html) 
 
 ## Known limitations
 
