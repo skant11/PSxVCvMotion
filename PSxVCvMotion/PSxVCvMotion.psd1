@@ -12,7 +12,7 @@
 RootModule = 'PSxVCvMotion.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # ID used to uniquely identify this module
 GUID = '1e592aa9-0f64-432f-a7ff-a8ddbb61cb86'
@@ -98,7 +98,7 @@ PrivateData = @{
         LicenseUri = 'https://github.com/equelin/PSxVCvMotion/blob/master/LICENSE'
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/equelin/PSDummy'
+        ProjectUri = 'https://github.com/equelin/PSxVCvMotion'
 
         # A URL to an icon representing this module.
         # IconUri = ''
